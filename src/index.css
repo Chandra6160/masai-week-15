@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.navbar-light .navbar-brand {
+  color: darkcyan;
+  font-size: 30px;
+  font-weight: 700;
+}
+.navbar-light ul{
+  font-weight: 700;
+}
+.nav-item:hover{
+  text-decoration: underline;
+  color: blue
+}
+.figure{
+  height: 40vh;
+}
