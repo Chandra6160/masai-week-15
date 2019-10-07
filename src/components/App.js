@@ -2,9 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Nav from "./nav"
-import Login from "./login"
-import Register from "./register"
-
+import Home from "./homepage"
+import Show from "./showpage"
+import Usernames from "./addrnames"
+import Blogs from "./addblogs";
+import Blogsshow from "./blogspage";
+import Comment from "./commentblog";
+import Freinds from "./freindspage";
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -12,27 +16,19 @@ class App extends React.Component {
             btn: false
         }
     }
-    
+
     render() {
         console.log(this.state.btn)
         return (
             <React.Fragment>
-                <Route exact path="/" component={Nav} />
-                <Route exact path="/" render={() => {
-                    return (
-                        <figure class="figure" style={{ height: "40vh" }}>
-                            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/8a465561486693.5a71bd683d677.png" class="figure-img img-fluid" alt="..." />
-                            <figcaption class="figure-caption text-right"></figcaption>
-                        </figure>
-                    )
-                }} />
-                <Route exact path="/login" component={Nav} />
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/register" component={Nav} />
-                <Route exact path="/register" component={Register} />
-                <Route exact path="/login/:id/email/:email" render={(props)=>{
-                    return(<Nav {...props}/>)
-                }}/>
+                <Route path="/" component={Nav} />
+                <Route exact path="/" component={Home}/>
+                <Route exact path="/show" component={Show}/>
+                <Route exact path="/addusers" component={Usernames}/>
+                <Route exact path="/addblogs" component={Blogs}/>
+                <Route exact path="/user/:id" component={Blogsshow}/>
+                <Route exact path="/user/:id/blog/:blogid" component={Comment}/>
+                <Route exact path="/user/:id/level/:levelno" component={Freinds}/>
             </React.Fragment>
 
         );
